@@ -1,3 +1,3 @@
 ## About Me
 
-Sample README.me file.
+Sample README.md file.
