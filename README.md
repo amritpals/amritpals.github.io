@@ -10,17 +10,11 @@ Static HTML/CSS/JS, served by GitHub Pages from the default branch.
 | `main.js` | Theme toggle, copy-email, print button, contact form |
 | `robots.txt`, `sitemap.xml` | Search engine hints |
 
-## Before this goes live
+## Third-party services
 
-Two placeholders need real values:
-
-1. **Contact form** — sign up at [web3forms.com](https://web3forms.com), then replace
-   `YOUR_WEB3FORMS_ACCESS_KEY` in `index.html`.
-2. **Analytics** — create a site at [goatcounter.com](https://www.goatcounter.com),
-   then replace `MYCODE` in the GoatCounter script at the bottom of `index.html`.
-
-Both fail quietly if left unset: the form shows the mailto fallback, and the
-analytics request 404s without breaking the page.
+The contact form posts to [Web3Forms](https://web3forms.com); its access key sits in
+`index.html` and is public by design. Traffic is counted by
+[GoatCounter](https://amrinh.goatcounter.com) — no cookies, so no consent banner needed.
 
 ## Custom domain
 
