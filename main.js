@@ -81,3 +81,29 @@
       .then(function () { submit.disabled = false; });
   });
 })();
+
+/* Back to top — appears once the hero has scrolled past. */
+(function () {
+  var btn = document.getElementById('to-top');
+  if (!btn) return;
+
+  var ticking = false;
+  var update = function () {
+    btn.classList.toggle('is-visible', window.scrollY > 400);
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', function () {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  });
+
+  update();
+})();
