@@ -29,17 +29,32 @@ jobs:
       - name: Validate HTML
         run: npx --yes html-validate index.html
 
-      - name: Check links
+      # Anything under our control breaks the build.
+      - name: Check internal links and anchors
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
+            --offline
             --include-fragments
+            index.html README.md
+          fail: true
+          jobSummary: false
+
+      # External sites go down and block bots. Their problems are reported,
+      # but they do not turn this repo's badge red.
+      - name: Check external links (advisory)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
             --exclude 'linkedin\.com'
+            --exclude 'web3forms\.com'
             --exclude '^mailto:'
             --exclude '^https://fonts\.(googleapis|gstatic)\.com/?$'
             index.html README.md
-          fail: true
+          fail: false
 
       - name: Check image weight
         run: |
