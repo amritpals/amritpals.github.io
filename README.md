@@ -1,5 +1,7 @@
 # amritpals.github.io
 
+[![CI](https://github.com/amritpals/amritpals.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/amritpals/amritpals.github.io/actions/workflows/ci.yml)
+
 Personal CV site for Amritpal Singh — Senior DevOps Engineer & SRE, Dublin.
 Static HTML/CSS/JS, served by GitHub Pages from the default branch.
 
@@ -9,6 +11,22 @@ Static HTML/CSS/JS, served by GitHub Pages from the default branch.
 | `style.css` | Theme tokens, layout, and the print stylesheet (Cmd+P → PDF) |
 | `main.js` | Theme toggle, copy-email, print button, contact form |
 | `robots.txt`, `sitemap.xml` | Search engine hints |
+
+## CI
+
+Every push runs `.github/workflows/ci.yml`:
+
+| Check | Fails the build when |
+|---|---|
+| `html-validate` | the markup is invalid |
+| `lychee` | a link or in-page anchor is dead |
+| image budget | a referenced image exceeds 200&nbsp;KB |
+| Lighthouse CI | performance, accessibility or SEO drops below 90 |
+
+Only `master`, and only after all of that passes, is deployed to Pages.
+
+> Requires **Settings → Pages → Source: GitHub Actions**. While the source is
+> still "Deploy from a branch", the `deploy` job cannot publish.
 
 ## Third-party services
 

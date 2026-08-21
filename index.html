@@ -120,12 +120,34 @@
   <section class="section" id="experience">
     <h2 class="section__title">Experience</h2>
 
-    <article class="role">
-      <div class="role__head">
-        <h3 class="role__title">DevOps Engineer <span class="role__org">· Fexco</span></h3>
-        <p class="role__when"><time datetime="2025-12">Dec 2025</time> – Present · Killorglin, Ireland</p>
-      </div>
-      <ul>
+    <div class="seg" role="tablist" aria-label="Experience format">
+      <button role="tab" id="tab-pipeline" aria-controls="v-pipeline" aria-selected="true"  data-view="pipeline" type="button">Pipeline</button>
+      <button role="tab" id="tab-yaml"     aria-controls="v-yaml"     aria-selected="false" data-view="yaml"     type="button">YAML</button>
+      <button role="tab" id="tab-hcl"      aria-controls="v-hcl"      aria-selected="false" data-view="hcl"      type="button">Terraform</button>
+    </div>
+
+    <div class="view" id="v-pipeline" role="tabpanel" aria-labelledby="tab-pipeline">
+      <div class="pipe">
+        <div class="pipe__bar">
+          <span class="pipe__dot"></span>
+          <code>career/main</code>
+          <span aria-hidden="true">·</span>
+          <span>9 stages</span>
+          <span class="pipe__total">total 17y 4m</span>
+        </div>
+
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--run"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">DevOps Engineer <span class="role__org">· Fexco</span><span class="badge badge--run">running</span></span>
+            <span class="stage__tags">gitlab-ci · terraform · aks · argocd · mtls</span>
+          </span>
+          <span class="stage__time">9m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2025-12">Dec 2025</time> – Present · Killorglin, Ireland</p>
+          <ul>
         <li>Built reusable GitLab CI/CD templates spanning Node.js, Gradle, Maven and Clojure, adopted by ten services across four language stacks, standardising build, test and release automation from a single source of truth.</li>
         <li>Shipped a GitLab CI Component for SAST, secret, dependency and container scanning, giving every project security coverage by default rather than per-team opt-in.</li>
         <li>Rolled out mutual TLS across seven payment microservices on AKS, provisioning an internal CA and per-service leaf certificates through Terraform, with key material delivered from Azure Key Vault via the Secrets Store CSI driver.</li>
@@ -135,14 +157,21 @@
         <li>Authored production Helm charts from scratch, pinning non-root UIDs, fsGroup and StatefulSet security contexts for PostgreSQL and Keycloak, and wiring JaCoCo, Cobertura and JUnit into merge request coverage diffs.</li>
         <li>Led observability rollout on AKS with Grafana Cloud, Prometheus, Loki, Tempo and Alloy, defining PromQL alerts for pod health and API server reliability.</li>
       </ul>
-    </article>
+        </div>
+      </details>
 
-    <article class="role">
-      <div class="role__head">
-        <h3 class="role__title">Engineer IV, Senior DevOps <span class="role__org">· ING</span></h3>
-        <p class="role__when"><time datetime="2024-07">Jul 2024</time> – <time datetime="2025-12">Dec 2025</time> · Dublin, Ireland</p>
-      </div>
-      <ul>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">Engineer IV, Senior DevOps <span class="role__org">· ING</span></span>
+            <span class="stage__tags">azure-devops · terraform · ansible · openshift · slo</span>
+          </span>
+          <span class="stage__time">1y 6m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2024-07">Jul 2024</time> – <time datetime="2025-12">Dec 2025</time> · Dublin, Ireland</p>
+          <ul>
         <li>Led DevOps initiatives, managing end-to-end CI/CD pipelines in Azure DevOps and automating infrastructure provisioning with Terraform and Ansible across Azure environments.</li>
         <li>Mentored junior DevOps engineers, defined Infrastructure as Code and CI/CD best practice, and promoted reusable pipeline templates for consistency and scale.</li>
         <li>Automated build, test and security scans within Azure DevOps pipelines, integrating quality gates and early detection.</li>
@@ -151,14 +180,21 @@
         <li>Defined and implemented SLIs/SLOs, and instrumented custom metrics into Grafana dashboards for real-time monitoring.</li>
         <li>Partnered with SRE leads on observability strategy and deployment practice, contributing to improved uptime and operational efficiency.</li>
       </ul>
-    </article>
+        </div>
+      </details>
 
-    <article class="role">
-      <div class="role__head">
-        <h3 class="role__title">DevOps Engineer <span class="role__org">· Merative (formerly IBM Watson Health)</span></h3>
-        <p class="role__when"><time datetime="2022-10">Oct 2022</time> – <time datetime="2023-10">Oct 2023</time> · Dublin, Ireland</p>
-      </div>
-      <ul>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">DevOps Engineer <span class="role__org">· Merative (formerly IBM Watson Health)</span></span>
+            <span class="stage__tags">azure · pulumi · jenkins · aks · helm</span>
+          </span>
+          <span class="stage__time">1y 1m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2022-10">Oct 2022</time> – <time datetime="2023-10">Oct 2023</time> · Dublin, Ireland</p>
+          <ul>
         <li>Designed and provisioned scalable Azure infrastructure with Terraform and Pulumi for data-centric applications.</li>
         <li>Built and maintained Jenkins CI/CD pipelines automating application deployments and infrastructure changes across environments.</li>
         <li>Containerised applications with Docker and orchestrated deployments on AKS using Helm charts.</li>
@@ -166,82 +202,258 @@
         <li>Ran PoCs on data pipeline and cloud operations tooling to guide architectural decisions.</li>
         <li>Supported production rollouts hands-on, resolving deployment issues and tuning pipeline performance with development teams.</li>
       </ul>
-    </article>
+        </div>
+      </details>
 
-    <article class="role">
-      <div class="role__head">
-        <h3 class="role__title">DevOps Engineer <span class="role__org">· IBM</span></h3>
-        <p class="role__when"><time datetime="2021-10">Oct 2021</time> – <time datetime="2022-10">Oct 2022</time> · Dublin, Ireland</p>
-      </div>
-      <ul>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">DevOps Engineer <span class="role__org">· IBM</span></span>
+            <span class="stage__tags">ibm-cloud · argocd · airflow · artifactory · scanning</span>
+          </span>
+          <span class="stage__time">1y 1m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2021-10">Oct 2021</time> – <time datetime="2022-10">Oct 2022</time> · Dublin, Ireland</p>
+          <ul>
         <li>Created and maintained CI/CD pipelines on IBM Cloud and internal frameworks.</li>
         <li>Ran technical spikes and PoCs on ArgoCD, Apache Airflow and JFrog Artifactory to improve deployment and data pipeline orchestration.</li>
         <li>Performed container image vulnerability scanning with SecOps-approved tooling, enforcing compliance across the SDLC.</li>
         <li>Deployed and managed cloud infrastructure with Terraform, standardising and version-controlling environments.</li>
         <li>Supported production rollouts via Jenkins, ensuring stability, traceability and timely delivery.</li>
       </ul>
-    </article>
+        </div>
+      </details>
 
-    <article class="role">
-      <div class="role__head">
-        <h3 class="role__title">Scrum Master &amp; DevOps Engineer <span class="role__org">· Fiserv</span></h3>
-        <p class="role__when"><time datetime="2021-02">Feb 2021</time> – <time datetime="2021-10">Oct 2021</time> · Nenagh, Ireland</p>
-      </div>
-      <ul>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">Scrum Master &amp; DevOps Engineer <span class="role__org">· Fiserv</span></span>
+            <span class="stage__tags">scrum · bash · ci-setup · clover-pos</span>
+          </span>
+          <span class="stage__time">9m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2021-02">Feb 2021</time> – <time datetime="2021-10">Oct 2021</time> · Nenagh, Ireland</p>
+          <ul>
         <li>Scrum Master for the EMEA product scope of Clover Networks, a cloud-based smart POS platform built in Java and Kotlin.</li>
         <li>Ran Scrum ceremonies, coached the team and removed impediments while meeting product milestones.</li>
         <li>Hands-on DevOps work automating developer environments in Bash and setting up the CI environment.</li>
       </ul>
-    </article>
+        </div>
+      </details>
 
-    <article class="role">
-      <div class="role__head">
-        <h3 class="role__title">Technical Lead <span class="role__org">· Wipro</span> <span class="role__note">(on-site with Ericsson, Ireland)</span></h3>
-        <p class="role__when"><time datetime="2015-11">Nov 2015</time> – <time datetime="2021-01">Jan 2021</time> · Bangalore &amp; Ireland</p>
-      </div>
-      <ul>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">Technical Lead <span class="role__org">· Wipro</span> <span class="role__note">(on-site with Ericsson, Ireland)</span></span>
+            <span class="stage__tags">openstack · kubernetes · java · grafana · prometheus</span>
+          </span>
+          <span class="stage__time">5y 3m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2015-11">Nov 2015</time> – <time datetime="2021-01">Jan 2021</time> · Bangalore &amp; Ireland</p>
+          <ul>
         <li>DevOps, test and automation engineer on-site with Ericsson, deploying containerised applications on OpenStack and Kubernetes.</li>
         <li>Built automation tooling in Java and shell scripting for functional, integration, stability, load and performance testing; automated performance KPI measurement, cutting average turnaround time by roughly half.</li>
         <li>Used Grafana and Prometheus for performance monitoring, and profiled memory in Java applications.</li>
         <li>Acted as Scrum Master for two teams alongside the individual-contributor work.</li>
       </ul>
-    </article>
+        </div>
+      </details>
 
-    <article class="role role--compact">
-      <div class="role__head">
-        <h3 class="role__title">Technical Lead, then Senior Software Engineer <span class="role__org">· Aricent</span></h3>
-        <p class="role__when"><time datetime="2012-07">Jul 2012</time> – <time datetime="2015-04">Apr 2015</time> · India</p>
-      </div>
-      <p>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">Freelance Developer <span class="role__org">· Upwork</span></span>
+            <span class="stage__tags">php · wordpress · joomla</span>
+          </span>
+          <span class="stage__time">7m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2015-04">Apr 2015</time> – <time datetime="2015-10">Oct 2015</time> · Remote</p>
+          <p>
+        Top Rated freelancer delivering PHP, WordPress and Joomla projects end to end, from client
+        interaction through technical delivery.
+      </p>
+        </div>
+      </details>
+
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">Technical Lead, then Senior Software Engineer <span class="role__org">· Aricent</span></span>
+            <span class="stage__tags">java · osgi · c · etsi-m2m · oma-dm</span>
+          </span>
+          <span class="stage__time">2y 10m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2012-07">Jul 2012</time> – <time datetime="2015-04">Apr 2015</time> · India</p>
+          <p>
         Feature ownership and team management for M2M and device management modules against ETSI M2M and
         OMA DM specifications — design through delivery, coding in Java and OSGi, plus C-language work on
         a proxy module routing WCDMA/LTE traffic.
       </p>
-    </article>
+        </div>
+      </details>
 
-    <article class="role role--compact">
-      <div class="role__head">
-        <h3 class="role__title">Freelance Developer <span class="role__org">· Upwork</span></h3>
-        <p class="role__when"><time datetime="2015-04">Apr 2015</time> – <time datetime="2015-10">Oct 2015</time> · Remote</p>
-      </div>
-      <p>
-        Top Rated freelancer delivering PHP, WordPress and Joomla projects end to end, from client
-        interaction through technical delivery.
-      </p>
-    </article>
-
-    <article class="role role--compact">
-      <div class="role__head">
-        <h3 class="role__title">Senior Project Engineer <span class="role__org">· Wipro Technologies</span></h3>
-        <p class="role__when"><time datetime="2007-09">Sep 2007</time> – <time datetime="2012-06">Jun 2012</time> · Bangalore, India</p>
-      </div>
-      <p>
+      <details class="stage">
+        <summary class="stage__row">
+          <span class="stage__icon stage__icon--ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="stage__main">
+            <span class="stage__name">Senior Project Engineer <span class="role__org">· Wipro Technologies</span></span>
+            <span class="stage__tags">gsm · atca · solaris · performance-management</span>
+          </span>
+          <span class="stage__time">4y 10m</span>
+        </summary>
+        <div class="stage__body">
+          <p class="stage__when"><time datetime="2007-09">Sep 2007</time> – <time datetime="2012-06">Jun 2012</time> · Bangalore, India</p>
+          <p>
         Led a team developing and maintaining GSM performance management modules for the Alcatel BSC on an
         ATCA platform, providing offshore and online support to networks deployed in China, Germany, France
         and Romania. Solaris and Linux, with functional and regression testing across the PM stack.
       </p>
-    </article>
+        </div>
+      </details>
+      </div>
+      <p class="pipe__hint">Every stage expands — click one for the detail.</p>
+    </div>
 
+    <div class="view" id="v-yaml" role="tabpanel" aria-labelledby="tab-yaml" hidden>
+      <div class="code">
+        <div class="code__bar">
+          <span>amritpal-singh.yaml</span>
+          <button class="code__copy" type="button">copy</button>
+        </div>
+<pre><span class="c-key">apiVersion</span>: careers/v1
+<span class="c-key">kind</span>: <span class="c-kw">Engineer</span>
+<span class="c-key">metadata</span>:
+  <span class="c-key">name</span>: amritpal-singh
+  <span class="c-key">namespace</span>: dublin-ie
+  <span class="c-key">labels</span>:
+    <span class="c-key">role</span>: devops-sre
+    <span class="c-key">seniority</span>: senior
+    <span class="c-key">work-authorization</span>: eu-citizen
+  <span class="c-key">annotations</span>:
+    <span class="c-key">linkedin.com/profile</span>: <span class="c-str">"s-amritpal"</span>
+    <span class="c-key">github.com/user</span>: <span class="c-str">"amritpals"</span>
+<span class="c-key">spec</span>:
+  <span class="c-key">replicas</span>: <span class="c-num">1</span>  <span class="c-com"># not horizontally scalable, sorry</span>
+  <span class="c-key">nodeSelector</span>:
+    <span class="c-key">topology.kubernetes.io/region</span>: europe-west
+    <span class="c-key">workplace</span>: hybrid
+
+  <span class="c-key">containers</span>:
+    - <span class="c-key">name</span>: platform-engineering
+      <span class="c-key">image</span>: fexco/devops-engineer:current
+      <span class="c-key">startedAt</span>: <span class="c-str">"2025-12"</span>
+      <span class="c-key">resources</span>:
+        <span class="c-key">requests</span>:
+          <span class="c-key">azure</span>: high
+          <span class="c-key">kubernetes</span>: high
+          <span class="c-key">terraform</span>: high
+        <span class="c-key">limits</span>:
+          <span class="c-key">meetings</span>: <span class="c-str">"3/day"</span>
+      <span class="c-key">env</span>:
+        - <span class="c-key">name</span>: CI_PLATFORM
+          <span class="c-key">value</span>: <span class="c-str">"gitlab"</span>
+        - <span class="c-key">name</span>: DEPLOY_STRATEGY
+          <span class="c-key">value</span>: <span class="c-str">"build-once-promote-many"</span>
+
+  <span class="c-key">initContainers</span>:  <span class="c-com"># had to run before the current role could start</span>
+    - <span class="c-key">name</span>: ing-engineer-iv
+      <span class="c-key">image</span>: ing/senior-devops:1.6y
+    - <span class="c-key">name</span>: merative-devops
+      <span class="c-key">image</span>: merative/devops:1.1y
+    - <span class="c-key">name</span>: ibm-watson-health
+      <span class="c-key">image</span>: ibm/devops:1.1y
+
+  <span class="c-key">volumeMounts</span>:
+    - <span class="c-key">name</span>: certifications
+      <span class="c-key">mountPath</span>: /etc/credentials
+      <span class="c-key">readOnly</span>: <span class="c-kw">true</span>
+
+  <span class="c-key">readinessProbe</span>:
+    <span class="c-key">exec</span>:
+      <span class="c-key">command</span>: [<span class="c-str">"terraform"</span>, <span class="c-str">"plan"</span>, <span class="c-str">"-detailed-exitcode"</span>]
+    <span class="c-key">initialDelaySeconds</span>: <span class="c-num">0</span>
+    <span class="c-key">periodSeconds</span>: <span class="c-num">10</span>
+
+  <span class="c-key">livenessProbe</span>:
+    <span class="c-key">httpGet</span>:
+      <span class="c-key">path</span>: /masala-chai
+      <span class="c-key">port</span>: <span class="c-num">8080</span>
+    <span class="c-key">failureThreshold</span>: <span class="c-num">2</span>
+
+<span class="c-key">status</span>:
+  <span class="c-key">phase</span>: <span class="c-kw">Running</span>
+  <span class="c-key">conditions</span>:
+    - <span class="c-key">type</span>: OpenToOpportunities
+      <span class="c-key">status</span>: <span class="c-str">"True"</span></pre>
+      </div>
+    </div>
+
+    <div class="view" id="v-hcl" role="tabpanel" aria-labelledby="tab-hcl" hidden>
+      <div class="code">
+        <div class="code__bar">
+          <span>main.tf</span>
+          <button class="code__copy" type="button">copy</button>
+        </div>
+<pre><span class="c-kw">terraform</span> {
+  <span class="c-key">required_providers</span> {
+    <span class="c-key">career</span> = {
+      <span class="c-key">source</span>  = <span class="c-str">"amritpals/career"</span>
+      <span class="c-key">version</span> = <span class="c-str">"~&gt; 17.4"</span>
+    }
+  }
+}
+
+<span class="c-kw">resource</span> <span class="c-str">"career_engineer"</span> <span class="c-str">"amritpal"</span> {
+  <span class="c-key">name</span>        = <span class="c-str">"Amritpal Singh"</span>
+  <span class="c-key">title</span>       = <span class="c-str">"Senior DevOps Engineer &amp; SRE"</span>
+  <span class="c-key">location</span>    = <span class="c-str">"Dublin, IE"</span>
+  <span class="c-key">citizenship</span> = <span class="c-str">"EU"</span>
+
+  <span class="c-key">experience_years</span> = <span class="c-num">17.4</span>
+
+  <span class="c-kw">dynamic</span> <span class="c-str">"role"</span> {
+    <span class="c-key">for_each</span> = <span class="c-kw">local</span>.roles
+    <span class="c-key">content</span> {
+      <span class="c-key">company</span> = role.value.company
+      <span class="c-key">started</span> = role.value.started
+      <span class="c-key">stack</span>   = role.value.stack
+    }
+  }
+
+  <span class="c-key">skills</span> = {
+    <span class="c-key">cloud</span>         = [<span class="c-str">"azure"</span>, <span class="c-str">"aks"</span>, <span class="c-str">"openstack"</span>]
+    <span class="c-key">iac</span>           = [<span class="c-str">"terraform"</span>, <span class="c-str">"pulumi"</span>, <span class="c-str">"ansible"</span>]
+    <span class="c-key">delivery</span>      = [<span class="c-str">"gitlab-ci"</span>, <span class="c-str">"azure-devops"</span>, <span class="c-str">"argocd"</span>]
+    <span class="c-key">observability</span> = [<span class="c-str">"prometheus"</span>, <span class="c-str">"grafana"</span>, <span class="c-str">"loki"</span>, <span class="c-str">"tempo"</span>]
+  }
+
+  <span class="c-key">certifications</span> = [
+    <span class="c-str">"HashiCorp Certified: Terraform Associate (003)"</span>,
+    <span class="c-str">"Certified ScrumMaster"</span>,
+  ]
+
+  <span class="c-kw">lifecycle</span> {
+    <span class="c-key">prevent_destroy</span>       = <span class="c-kw">true</span>
+    <span class="c-key">create_before_destroy</span> = <span class="c-kw">true</span>  <span class="c-com"># always line up the next role first</span>
+  }
+}
+
+<span class="c-kw">output</span> <span class="c-str">"contact"</span> {
+  <span class="c-key">value</span>     = <span class="c-str">"amritpal01@gmail.com"</span>
+  <span class="c-key">sensitive</span> = <span class="c-kw">false</span>
+}</pre>
+      </div>
+    </div>
   </section>
 
   <section class="section" id="skills">
@@ -375,7 +587,7 @@
       <input type="hidden" name="subject" value="New message from amritpals.github.io">
       <input type="hidden" name="from_name" value="amritpals.github.io">
       <!-- Honeypot: bots fill this, humans never see it. -->
-      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true">
 
       <div class="form__row">
         <label for="f-name">Name</label>

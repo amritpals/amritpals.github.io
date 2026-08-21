@@ -107,3 +107,72 @@
 
   update();
 })();
+
+/* Experience format switch — pipeline / YAML / Terraform. */
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.seg button'));
+  if (!tabs.length) return;
+
+  var show = function (view) {
+    tabs.forEach(function (t) {
+      t.setAttribute('aria-selected', String(t.dataset.view === view));
+    });
+    ['pipeline', 'yaml', 'hcl'].forEach(function (v) {
+      var el = document.getElementById('v-' + v);
+      if (el) el.hidden = (v !== view);
+    });
+    try { localStorage.setItem('cv-view', view); } catch (e) {}
+  };
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { show(t.dataset.view); });
+  });
+
+  /* Left/right arrows move between tabs, as a tablist should. */
+  tabs.forEach(function (t, i) {
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus();
+      show(next.dataset.view);
+    });
+  });
+
+  try {
+    var saved = localStorage.getItem('cv-view');
+    if (saved) show(saved);
+  } catch (e) {}
+})();
+
+/* Copy the manifest text, stripped of highlight markup. */
+(function () {
+  document.querySelectorAll('.code__copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.closest('.code').querySelector('pre');
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(pre.innerText).then(function () {
+        btn.textContent = 'copied';
+        setTimeout(function () { btn.textContent = 'copy'; }, 1400);
+      });
+    });
+  });
+})();
+
+/* Printing shows the pipeline view, so every stage has to be open first. */
+(function () {
+  var stages = [].slice.call(document.querySelectorAll('details.stage'));
+  if (!stages.length) return;
+
+  var wasOpen = [];
+
+  window.addEventListener('beforeprint', function () {
+    wasOpen = stages.map(function (s) { return s.open; });
+    stages.forEach(function (s) { s.open = true; });
+  });
+
+  window.addEventListener('afterprint', function () {
+    stages.forEach(function (s, i) { s.open = wasOpen[i]; });
+  });
+})();
