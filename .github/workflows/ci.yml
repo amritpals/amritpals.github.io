@@ -1,0 +1,83 @@
+name: CI
+
+# Every push and PR is checked. Only master, and only after the checks
+# pass, is published to GitHub Pages.
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate HTML
+        run: npx --yes html-validate index.html
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --include-fragments
+            --exclude 'linkedin\.com'
+            --exclude '^mailto:'
+            --exclude '^https://fonts\.(googleapis|gstatic)\.com/?$'
+            index.html README.md
+          fail: true
+
+      - name: Check image weight
+        run: |
+          # A CV page has no business shipping a megabyte of photo.
+          budget=200000
+          for f in *.jpg *.png; do
+            [ -e "$f" ] || continue
+            size=$(stat -c%s "$f")
+            printf '%-12s %8s bytes\n' "$f" "$size"
+            if grep -q "$f" index.html && [ "$size" -gt "$budget" ]; then
+              echo "::error file=$f::$f is ${size}b, over the ${budget}b budget"
+              exit 1
+            fi
+          done
+
+      - name: Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  deploy:
+    name: Deploy
+    needs: validate
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
